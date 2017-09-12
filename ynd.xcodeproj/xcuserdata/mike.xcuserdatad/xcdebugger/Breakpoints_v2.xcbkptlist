@@ -99,53 +99,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ynd/MainViewController.swift"
-            timestampString = "526944020.905977"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ynd.MainViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "ynd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mike/Programmer/YND/ynd/ynd/MainViewController.swift"
-                  timestampString = "526944202.702128"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "501">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ynd.MainViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "ynd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mike/Programmer/YND/ynd/ynd/MainViewController.swift"
-                  timestampString = "526944202.705631"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "55">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

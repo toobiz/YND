@@ -11,8 +11,9 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var imageSets = [ImageSet]()
     
-    // MARK: - View lifecyclet5
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         
         API.sharedInstance().downloadListOfImages { (success, imageSets, error) in
-//            print(imageSets)
+            self.imageSets = imageSets
+            DispatchQueue.main.async() {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -31,11 +35,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "ListCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath as IndexPath) as? ListCell
         
+        if imageSets.count > 0 {
+            let imageSet = imageSets[indexPath.row]
+            cell?.listName.text = imageSet.author
+        }
+        
         return cell!
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return imageSets.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
