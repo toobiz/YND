@@ -28,7 +28,7 @@ class API: NSObject {
     
     // MARK: - Unsplash API
 
-    func downloadListOfImages() {
+    func downloadListOfImages(completionHandler: @escaping (_ success: Bool, _ imageSets: [ImageSet], _ errorString: String?) -> Void) {
         
         let urlString = API.Constants.LIST_URL
         let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
@@ -51,20 +51,37 @@ class API: NSObject {
             
 //            self.quizzes = self.fetchAllQuizzes()
 //            var ids = [NSNumber]()
-//            
+//
 //            for quiz in self.quizzes {
 //                ids.append(quiz.id)
 //            }
             
+            var imageSets = [ImageSet]()
+            
             for item in items {
                 
-                print(item)
+//                print(item)
                 
-//                var idToAdd = NSNumber()
-//                
-//                if let id = item["id"] as? NSNumber {
-//                    idToAdd = id
-//                }
+                var authorToAdd = String()
+                var filenameToAdd = String()
+
+                if let author = item["author"] as? String {
+                    authorToAdd = author
+                }
+                
+                if let filename = item["filename"] {
+                    filenameToAdd = filename as! String
+                }
+                
+                let imageDict: [String: String] = [
+                    "author" : authorToAdd,
+                    "filename" : filenameToAdd
+                ]
+                
+                let imageSetToAdd = ImageSet(dictionary: imageDict)
+                print(imageSetToAdd.author)
+                print(imageSetToAdd.filename)
+                imageSets.append(imageSetToAdd)
                 
 //                if ids.contains(idToAdd) {
 //                    print("Already in Core Data")
@@ -81,7 +98,7 @@ class API: NSObject {
 //                    if let photoDict = item["mainPhoto"] as? [String:Any] {
 //                        urlToAdd = photoDict["url"] as! String
 //                    }
-//                    
+//
 //                    let quizDict: [String : AnyObject] = [
 //                        "id" : idToAdd as AnyObject,
 //                        "title" : titleToAdd as AnyObject,
@@ -95,7 +112,7 @@ class API: NSObject {
 //
 //            }
 //            CoreDataStackManager.sharedInstance().saveContext()
-//            completionHandler(true, self.quizzes, nil)
+            completionHandler(true, imageSets, nil)
             
         }
         task.resume()

@@ -16,6 +16,7 @@
 		27EEBCFF1F674FD900B5C12A /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EEBCFE1F674FD900B5C12A /* ListCell.xib */; };
 		27EEBD021F683E9600B5C12A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD011F683E9600B5C12A /* API.swift */; };
 		27EEBD041F68414200B5C12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD031F68414200B5C12A /* Constants.swift */; };
+		27EEBD071F68473F00B5C12A /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD061F68473F00B5C12A /* ImageSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		27EEBCFE1F674FD900B5C12A /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		27EEBD011F683E9600B5C12A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		27EEBD031F68414200B5C12A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		27EEBD061F68473F00B5C12A /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		27EEBCE81F6741F400B5C12A /* ynd */ = {
 			isa = PBXGroup;
 			children = (
+				27EEBD051F6846C300B5C12A /* Model */,
 				27EEBD001F683E7000B5C12A /* API */,
 				27EEBCFB1F67432A00B5C12A /* ViewControllers */,
 				27EEBCE91F6741F400B5C12A /* AppDelegate.swift */,
@@ -90,6 +93,14 @@
 				27EEBD031F68414200B5C12A /* Constants.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		27EEBD051F6846C300B5C12A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27EEBD061F68473F00B5C12A /* ImageSet.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27EEBD071F68473F00B5C12A /* ImageSet.swift in Sources */,
 				27EEBD041F68414200B5C12A /* Constants.swift in Sources */,
 				27EEBCFD1F674FB500B5C12A /* ListCell.swift in Sources */,
 				27EEBCEC1F6741F400B5C12A /* MainViewController.swift in Sources */,
