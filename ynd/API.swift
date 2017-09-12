@@ -57,6 +57,7 @@ class API: NSObject {
 //            }
             
             var imageSets = [ImageSet]()
+            var authors = [String]()
             
             for item in items {
                 
@@ -64,9 +65,17 @@ class API: NSObject {
                 
                 var authorToAdd = String()
                 var filenameToAdd = String()
+                var filteredArray = [String]()
 
                 if let author = item["author"] as? String {
-                    authorToAdd = author
+                    if authors.contains(author) {
+//                        let results = authors.map({ $0.lowercased().contains(author) })
+                        filteredArray = authors.filter({ $0 == author })
+                        print(filteredArray.count)
+                        authorToAdd = author + " \(filteredArray.count + 1)"
+                    }
+                    authors.append(author)
+                    authorToAdd = author + " \(filteredArray.count + 1)"
                 }
                 
                 if let filename = item["filename"] {
