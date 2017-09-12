@@ -19,6 +19,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        API.sharedInstance().downloadListOfImages()
     }
 
     // MARK: - TableView delegate
