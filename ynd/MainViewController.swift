@@ -35,9 +35,25 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "ListCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath as IndexPath) as? ListCell
         
+        let imageSet = imageSets[indexPath.row]
+        
         if imageSets.count > 0 {
-            let imageSet = imageSets[indexPath.row]
             cell?.listName.text = imageSet.author
+
+        }
+        
+        if imageSet.filename == nil || imageSet.filename == "" {
+            cell?.listImage.image = nil
+            print("Image not available")
+//        } else if quiz.image != nil {
+//            cell?.quizPhoto.image = quiz.image!
+//            print("Image retrieved from cache")
+        } else {
+            API.sharedInstance().downloadImage(urlString: imageSet.filename!, completionHandler: { (success, image, error) in
+                if success == true {
+                    cell?.listImage.image = image
+                }
+            })
         }
         
         return cell!

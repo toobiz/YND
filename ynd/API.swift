@@ -65,17 +65,14 @@ class API: NSObject {
                 
                 var authorToAdd = String()
                 var filenameToAdd = String()
-                var filteredArray = [String]()
+                var filteredAuthors = [String]()
 
                 if let author = item["author"] as? String {
                     if authors.contains(author) {
-//                        let results = authors.map({ $0.lowercased().contains(author) })
-                        filteredArray = authors.filter({ $0 == author })
-                        print(filteredArray.count)
-                        authorToAdd = author + " \(filteredArray.count + 1)"
+                        filteredAuthors = authors.filter({ $0 == author })
                     }
                     authors.append(author)
-                    authorToAdd = author + " \(filteredArray.count + 1)"
+                    authorToAdd = author + " \(filteredAuthors.count + 1)"
                 }
                 
                 if let filename = item["filename"] {
@@ -91,29 +88,7 @@ class API: NSObject {
                 print(imageSetToAdd.author)
                 print(imageSetToAdd.filename)
                 imageSets.append(imageSetToAdd)
-                
-//                if ids.contains(idToAdd) {
-//                    print("Already in Core Data")
-//                } else {
-//                    print("Adding quiz to Core Data")
-//                    
-//                    var titleToAdd = String()
-//                    var urlToAdd = String()
-//                    
-//                    if let title = item["title"] as? String {
-//                        titleToAdd = title
-//                    }
-//                    
-//                    if let photoDict = item["mainPhoto"] as? [String:Any] {
-//                        urlToAdd = photoDict["url"] as! String
-//                    }
-//
-//                    let quizDict: [String : AnyObject] = [
-//                        "id" : idToAdd as AnyObject,
-//                        "title" : titleToAdd as AnyObject,
-//                        "urlString" : urlToAdd as AnyObject
-//                    ]
-                
+
 //                    let quizToAdd = Quiz(dictionary: quizDict, context: self.sharedContext)
 //                    CoreDataStackManager.sharedInstance().saveContext()
 //                    self.quizzes.append(quizToAdd)
@@ -128,4 +103,36 @@ class API: NSObject {
 
     }
     
+        func downloadImage(urlString: String, completionHandler: @escaping (_ success: Bool, _ image: UIImage, _ errorString: String?) -> Void) {
+            
+            let request = NSMutableURLRequest(url: NSURL(string: API.Constants.BASE_URL + urlString)! as URL)
+            
+            //TODO: change url, use id instead of filename, e.g. http://unsplash.it/300/200?image=0
+            
+            let image = UIImage()
+            
+            let task = session.dataTask(with: request as URLRequest) { data, response, error in
+                
+                if response != nil {
+                    let image = UIImage(data: data!)
+                    completionHandler(true, image!, nil)
+                }
+                if let error = error {
+                    completionHandler(false, image, error.localizedDescription)
+                }
+                
+            }
+            task.resume()
+            
+    }
+    
 }
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,6 @@ extension API {
     
     struct Constants {
         static let BASE_URL = "https://unsplash.it/"
-        static let LIST_URL = Constants.BASE_URL + "list"
+        static let LIST_URL = API.Constants.BASE_URL + "/list"
     }
 }

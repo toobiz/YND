@@ -11,14 +11,14 @@ import Foundation
 class ImageSet {
     
     var _author: String!
-    var _filename: String!
+    var _filename: String?
     
     var author: String {
         return _author
     }
     
-    var filename: String {
-        return _filename
+    var filename: String? {
+        return _filename!
     }
     
     // Initialize new ImageSet
