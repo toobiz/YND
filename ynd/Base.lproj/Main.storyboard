@@ -54,12 +54,39 @@
                     <view key="view" contentMode="scaleToFill" id="jH5-US-Hbi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C0N-nP-Si9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQy-fa-IvN">
+                                <rect key="frame" x="0.0" y="624" width="375" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="qAS-Su-3Ta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FQy-fa-IvN" firstAttribute="top" secondItem="C0N-nP-Si9" secondAttribute="bottom" id="jvZ-Za-XEe"/>
+                            <constraint firstAttribute="trailing" secondItem="C0N-nP-Si9" secondAttribute="trailing" id="lEi-bi-MKo"/>
+                            <constraint firstItem="ejg-51-5Gu" firstAttribute="top" secondItem="FQy-fa-IvN" secondAttribute="bottom" id="leY-Mv-LZZ"/>
+                            <constraint firstItem="C0N-nP-Si9" firstAttribute="top" secondItem="jH5-US-Hbi" secondAttribute="top" id="sl9-Wj-yfM"/>
+                            <constraint firstItem="C0N-nP-Si9" firstAttribute="leading" secondItem="jH5-US-Hbi" secondAttribute="leading" id="tms-up-q8P"/>
+                            <constraint firstAttribute="trailing" secondItem="FQy-fa-IvN" secondAttribute="trailing" id="vAZ-11-Dos"/>
+                            <constraint firstItem="FQy-fa-IvN" firstAttribute="leading" secondItem="jH5-US-Hbi" secondAttribute="leading" id="wY1-PR-fhc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="FQy-fa-IvN" id="yiJ-0B-381"/>
+                        <outlet property="imageView" destination="C0N-nP-Si9" id="5XD-Ij-use"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBo-jN-Nwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="-555"/>
+            <point key="canvasLocation" x="1581.5999999999999" y="-555.47226386806597"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rUP-bP-t3N">

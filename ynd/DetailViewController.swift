@@ -13,11 +13,17 @@ class DetailViewController: UIViewController {
     var id = NSNumber()
     var author = String()
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(author)
         print(String(describing: id))
+        
+        authorLabel.text = author
 
     }
 
