@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="-555.47226386806597"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Uid-hJ-amk">
             <objects>
-                <viewController id="JP7-FM-hjl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Details" id="JP7-FM-hjl" customClass="DetailViewController" customModule="ynd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fHs-hm-dO6"/>
                         <viewControllerLayoutGuide type="bottom" id="ejg-51-5Gu"/>
