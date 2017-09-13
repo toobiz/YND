@@ -8,18 +8,20 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     var id = NSNumber()
     var author = String()
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 6.0
         authorLabel.text = author
         imageView.image = #imageLiteral(resourceName: "placeholder")
         
@@ -34,6 +36,8 @@ class DetailViewController: UIViewController {
 
     }
 
-    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
 
 }

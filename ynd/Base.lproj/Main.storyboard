@@ -55,10 +55,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C0N-nP-Si9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
-                                <color key="backgroundColor" red="0.91189628839492798" green="0.933357834815979" blue="0.94539457559585571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQy-fa-IvN">
                                 <rect key="frame" x="0.0" y="624" width="375" height="43"/>
                                 <constraints>
@@ -68,21 +64,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eX-bu-Prs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="kCK-en-DYL">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
+                                        <color key="backgroundColor" red="0.91189628840000003" green="0.93335783480000001" blue="0.94539457559999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kCK-en-DYL" secondAttribute="bottom" id="CbS-Yx-bJu"/>
+                                    <constraint firstItem="kCK-en-DYL" firstAttribute="centerX" secondItem="0eX-bu-Prs" secondAttribute="centerX" id="OKT-sn-eYL"/>
+                                    <constraint firstItem="kCK-en-DYL" firstAttribute="centerY" secondItem="0eX-bu-Prs" secondAttribute="centerY" id="OgM-nX-YYX"/>
+                                    <constraint firstItem="kCK-en-DYL" firstAttribute="top" secondItem="0eX-bu-Prs" secondAttribute="top" id="RLM-gG-EXd"/>
+                                    <constraint firstItem="kCK-en-DYL" firstAttribute="leading" secondItem="0eX-bu-Prs" secondAttribute="leading" id="e1D-Ag-Klm"/>
+                                    <constraint firstAttribute="trailing" secondItem="kCK-en-DYL" secondAttribute="trailing" id="r9k-zP-Rsn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="JP7-FM-hjl" id="0xt-p8-ks3"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FQy-fa-IvN" firstAttribute="top" secondItem="C0N-nP-Si9" secondAttribute="bottom" id="jvZ-Za-XEe"/>
-                            <constraint firstAttribute="trailing" secondItem="C0N-nP-Si9" secondAttribute="trailing" id="lEi-bi-MKo"/>
+                            <constraint firstItem="0eX-bu-Prs" firstAttribute="leading" secondItem="jH5-US-Hbi" secondAttribute="leading" id="0tP-Pa-hVa"/>
+                            <constraint firstItem="0eX-bu-Prs" firstAttribute="top" secondItem="jH5-US-Hbi" secondAttribute="top" id="DWh-Ld-Akk"/>
+                            <constraint firstAttribute="trailing" secondItem="0eX-bu-Prs" secondAttribute="trailing" id="RkF-Fh-shs"/>
                             <constraint firstItem="ejg-51-5Gu" firstAttribute="top" secondItem="FQy-fa-IvN" secondAttribute="bottom" id="leY-Mv-LZZ"/>
-                            <constraint firstItem="C0N-nP-Si9" firstAttribute="top" secondItem="jH5-US-Hbi" secondAttribute="top" id="sl9-Wj-yfM"/>
-                            <constraint firstItem="C0N-nP-Si9" firstAttribute="leading" secondItem="jH5-US-Hbi" secondAttribute="leading" id="tms-up-q8P"/>
+                            <constraint firstItem="FQy-fa-IvN" firstAttribute="top" secondItem="0eX-bu-Prs" secondAttribute="bottom" id="rD3-Zj-Aoj"/>
                             <constraint firstAttribute="trailing" secondItem="FQy-fa-IvN" secondAttribute="trailing" id="vAZ-11-Dos"/>
                             <constraint firstItem="FQy-fa-IvN" firstAttribute="leading" secondItem="jH5-US-Hbi" secondAttribute="leading" id="wY1-PR-fhc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="authorLabel" destination="FQy-fa-IvN" id="yiJ-0B-381"/>
-                        <outlet property="imageView" destination="C0N-nP-Si9" id="5XD-Ij-use"/>
+                        <outlet property="imageView" destination="kCK-en-DYL" id="B1H-fy-XCv"/>
+                        <outlet property="scrollView" destination="0eX-bu-Prs" id="YZu-L4-YUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBo-jN-Nwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,4 +125,7 @@
             <point key="canvasLocation" x="96.799999999999997" y="-555.47226386806597"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="150" height="150"/>
+    </resources>
 </document>
