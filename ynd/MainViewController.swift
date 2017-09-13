@@ -40,6 +40,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "ListCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath as IndexPath) as? ListCell
         
+        cell?.selectionStyle = .none
         let imageSet = imageSets[indexPath.row]
         
         if imageSets.count > 0 {
@@ -55,7 +56,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            print("Image retrieved from cache")
         } else {
             cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
-            API.sharedInstance().downloadImage(id: imageSet.id!, completionHandler: { (success, image, error) in
+            API.sharedInstance().downloadImage(id: imageSet.id!, width: 300, height: 300, completionHandler: { (success, image, error) in
                 if success == true {
 //                    if let cellToUpdate = tableView.cellForRow(at: indexPath) as? ListCell {
 //                        quiz.image = resizedImage

@@ -20,10 +20,17 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(author)
-        print(String(describing: id))
-        
         authorLabel.text = author
+        imageView.image = #imageLiteral(resourceName: "placeholder")
+        
+        API.sharedInstance().downloadImage(id: id, width: imageView.bounds.width, height: imageView.bounds.height) { (success, image, error) in
+            if success == true {
+
+                DispatchQueue.main.async(execute: {
+                    self.imageView.image = image
+                });
+            }
+        }
 
     }
 
