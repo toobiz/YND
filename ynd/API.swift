@@ -64,7 +64,7 @@ class API: NSObject {
 //                print(item)
                 
                 var authorToAdd = String()
-                var filenameToAdd = String()
+                var idToAdd = NSNumber()
                 var filteredAuthors = [String]()
 
                 if let author = item["author"] as? String {
@@ -75,18 +75,18 @@ class API: NSObject {
                     authorToAdd = author + " \(filteredAuthors.count + 1)"
                 }
                 
-                if let filename = item["filename"] {
-                    filenameToAdd = filename as! String
+                if let id = item["id"] {
+                    idToAdd = id as! NSNumber
                 }
                 
-                let imageDict: [String: String] = [
-                    "author" : authorToAdd,
-                    "filename" : filenameToAdd
+                let imageDict: [String: AnyObject] = [
+                    "author" : authorToAdd as AnyObject,
+                    "id" : idToAdd as AnyObject
                 ]
                 
                 let imageSetToAdd = ImageSet(dictionary: imageDict)
-                print(imageSetToAdd.author)
-                print(imageSetToAdd.filename)
+//                print(imageSetToAdd.author)
+//                print(imageSetToAdd.id)
                 imageSets.append(imageSetToAdd)
 
 //                    let quizToAdd = Quiz(dictionary: quizDict, context: self.sharedContext)
@@ -103,22 +103,26 @@ class API: NSObject {
 
     }
     
-        func downloadImage(urlString: String, completionHandler: @escaping (_ success: Bool, _ image: UIImage, _ errorString: String?) -> Void) {
-            
-            let request = NSMutableURLRequest(url: NSURL(string: API.Constants.BASE_URL + urlString)! as URL)
-            
-            //TODO: change url, use id instead of filename, e.g. http://unsplash.it/300/200?image=0
-            
+        func downloadImage(id: NSNumber, completionHandler: @escaping (_ success: Bool, _ image: UIImage, _ errorString: String?) -> Void) {
+            let url = NSURL(string: API.Constants.BASE_URL + "300" + API.Constants.IMAGE_URL + String(describing: id))
+            let request = NSMutableURLRequest(url: url! as URL)
             let image = UIImage()
-            
             let task = session.dataTask(with: request as URLRequest) { data, response, error in
                 
                 if response != nil {
-                    let image = UIImage(data: data!)
-                    completionHandler(true, image!, nil)
+                        if let image = UIImage(data: data!) {
+                            print(url)
+                            completionHandler(true, image, nil)
+                        } else {
+                            completionHandler(false, image, nil)
+                    }
+                        //                    print(image)
                 }
                 if let error = error {
                     completionHandler(false, image, error.localizedDescription)
+//                } else if data != nil {
+//                    let image = UIImage(data: data!)
+//                    completionHandler(true, image!, nil)
                 }
                 
             }

@@ -42,16 +42,29 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         }
         
-        if imageSet.filename == nil || imageSet.filename == "" {
+        if imageSet.id == nil {
             cell?.listImage.image = nil
             print("Image not available")
 //        } else if quiz.image != nil {
 //            cell?.quizPhoto.image = quiz.image!
 //            print("Image retrieved from cache")
         } else {
-            API.sharedInstance().downloadImage(urlString: imageSet.filename!, completionHandler: { (success, image, error) in
+            cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
+            API.sharedInstance().downloadImage(id: imageSet.id!, completionHandler: { (success, image, error) in
                 if success == true {
-                    cell?.listImage.image = image
+//                    if let cellToUpdate = tableView.cellForRow(at: indexPath) as? ListCell {
+//                        quiz.image = resizedImage
+                        DispatchQueue.main.async(execute: {
+//                            cell?.listImage.image = nil
+                            cell?.listImage.image = image
+                            cell?.setNeedsLayout()
+                        });
+//                    }
+                } else {
+//                    DispatchQueue.main.async(execute: {
+                        cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
+//                    });
+                    
                 }
             })
         }
@@ -66,4 +79,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+
 }

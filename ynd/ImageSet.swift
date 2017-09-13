@@ -11,25 +11,25 @@ import Foundation
 class ImageSet {
     
     var _author: String!
-    var _filename: String?
+    var _id: NSNumber?
     
     var author: String {
         return _author
     }
     
-    var filename: String? {
-        return _filename!
+    var id: NSNumber? {
+        return _id!
     }
     
     // Initialize new ImageSet
     
-    init(dictionary: [String: String]) {
+    init(dictionary: [String: AnyObject]) {
         if let author = dictionary["author"] {
-            self._author = author
+            self._author = author as! String
         }
         
-        if let filename = dictionary["filename"] {
-            self._filename = filename
+        if let id = dictionary["id"] {
+            self._id = id as? NSNumber
         }
     }
 }
