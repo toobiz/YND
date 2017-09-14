@@ -96,6 +96,7 @@
                             <constraint firstItem="FQy-fa-IvN" firstAttribute="leading" secondItem="jH5-US-Hbi" secondAttribute="leading" id="wY1-PR-fhc"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="authorLabel" destination="FQy-fa-IvN" id="yiJ-0B-381"/>
                         <outlet property="imageView" destination="kCK-en-DYL" id="B1H-fy-XCv"/>
@@ -104,15 +105,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBo-jN-Nwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2495" y="-555"/>
+            <point key="canvasLocation" x="2342" y="-555"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="j3J-5G-8pg">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5uA-4g-q1z" customClass="PageViewController" customModule="ynd" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5uA-4g-q1z" customClass="PageViewController" customModule="ynd" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="QBx-ET-mQf"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZr-FI-LLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="-555"/>
+            <point key="canvasLocation" x="1631" y="-555"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rUP-bP-t3N">
