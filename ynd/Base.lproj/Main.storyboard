@@ -104,7 +104,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBo-jN-Nwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1581.5999999999999" y="-555.47226386806597"/>
+            <point key="canvasLocation" x="2495" y="-555"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="j3J-5G-8pg">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5uA-4g-q1z" customClass="PageViewController" customModule="ynd" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZr-FI-LLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-555"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rUP-bP-t3N">

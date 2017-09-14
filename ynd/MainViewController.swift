@@ -84,10 +84,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let imageSet = imageSets[indexPath.row]
-        let detailView = storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailViewController
-        detailView.id = imageSet.id!
-        detailView.author = imageSet.author
-        navigationController?.pushViewController(detailView, animated: true)
+//        let detailView = storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailViewController
+//        detailView.id = imageSet.id!
+//        detailView.author = imageSet.author
+        
+        let pageView = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        pageView.imageSets = imageSets
+        pageView.currentIndex = indexPath.row
+        
+        navigationController?.pushViewController(pageView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

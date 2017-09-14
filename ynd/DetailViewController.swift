@@ -12,6 +12,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     var id = NSNumber()
     var author = String()
+    var pageIndex = NSInteger()
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!

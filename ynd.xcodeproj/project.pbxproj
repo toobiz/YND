@@ -18,6 +18,7 @@
 		27EEBD041F68414200B5C12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD031F68414200B5C12A /* Constants.swift */; };
 		27EEBD071F68473F00B5C12A /* ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD061F68473F00B5C12A /* ImageSet.swift */; };
 		27EEBD091F69C39C00B5C12A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD081F69C39C00B5C12A /* DetailViewController.swift */; };
+		27EEBD0B1F69E3B700B5C12A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD0A1F69E3B700B5C12A /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		27EEBD031F68414200B5C12A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		27EEBD061F68473F00B5C12A /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSet.swift; sourceTree = "<group>"; };
 		27EEBD081F69C39C00B5C12A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		27EEBD0A1F69E3B700B5C12A /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				27EEBCEB1F6741F400B5C12A /* MainViewController.swift */,
 				27EEBD081F69C39C00B5C12A /* DetailViewController.swift */,
+				27EEBD0A1F69E3B700B5C12A /* PageViewController.swift */,
 				27EEBCFC1F674FB500B5C12A /* ListCell.swift */,
 				27EEBCFE1F674FD900B5C12A /* ListCell.xib */,
 			);
@@ -187,6 +190,7 @@
 				27EEBD021F683E9600B5C12A /* API.swift in Sources */,
 				27EEBCEA1F6741F400B5C12A /* AppDelegate.swift in Sources */,
 				27EEBD091F69C39C00B5C12A /* DetailViewController.swift in Sources */,
+				27EEBD0B1F69E3B700B5C12A /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
