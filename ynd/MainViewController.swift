@@ -91,6 +91,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let pageView = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
         pageView.imageSets = imageSets
         pageView.currentIndex = indexPath.row
+        pageView.getViewControllerAtIndex(index: indexPath.row)
         
         navigationController?.pushViewController(pageView, animated: true)
     }

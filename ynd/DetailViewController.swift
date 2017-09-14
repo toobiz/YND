@@ -10,9 +10,10 @@ import UIKit
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
     
-    var id = NSNumber()
-    var author = String()
-    var pageIndex = NSInteger()
+//    var id = NSNumber()
+//    var author = String()
+    var currentIndex = Int()
+    var imageSets = [ImageSet]()
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
@@ -23,17 +24,27 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 6.0
-        authorLabel.text = author
-        imageView.image = #imageLiteral(resourceName: "placeholder")
         
-        API.sharedInstance().downloadImage(id: id, width: imageView.bounds.width, height: imageView.bounds.height) { (success, image, error) in
-            if success == true {
+        imageView.image = #imageLiteral(resourceName: "placeholder")
 
+        authorLabel.text = imageSets[currentIndex].author
+        let id = imageSets[currentIndex].id
+        
+        API.sharedInstance().downloadImage(id: id!, width: imageView.bounds.width, height: imageView.bounds.height) { (success, image, error) in
+            
+            if success == true {
+                
                 DispatchQueue.main.async(execute: {
                     self.imageView.image = image
                 });
             }
         }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
 
     }
 
