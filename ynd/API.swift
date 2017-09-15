@@ -53,7 +53,7 @@ class API: NSObject {
         self.imageSets = self.fetchAll()
         
         if Reachability.isConnectedToNetwork() == true {
-            print("Internet Connection Available!")
+//            print("Internet Connection Available!")
 
         
         let urlString = API.Constants.LIST_URL
@@ -94,9 +94,9 @@ class API: NSObject {
                 }
                 
                 if ids.contains(idToAdd) {
-                    print("Already in Core Data")
+//                    print("Already in Core Data")
                 } else {
-//                    print("Adding to Core Data")
+                    print("Adding to Core Data")
                     
                     var authorToAdd = String()
                     var filteredAuthors = [String]()
@@ -140,7 +140,7 @@ class API: NSObject {
         let request = NSMutableURLRequest(url: url! as URL)
         
         if Reachability.isConnectedToNetwork() == true {
-            print("Internet Connection Available!")
+//            print("Internet Connection Available!")
             
             let task = session.dataTask(with: request as URLRequest) { data, response, error in
                 
