@@ -103,8 +103,8 @@ class API: NSObject {
 
     }
     
-    func downloadImage(id: NSNumber, width: CGFloat, height: CGFloat, completionHandler: @escaping (_ success: Bool, _ image: UIImage, _ errorString: String?) -> Void) {
-            let url = NSURL(string: API.Constants.BASE_URL + String(describing: width) + "/" + String(describing: height) + API.Constants.IMAGE_URL + String(describing: id))
+    func downloadImage(id: NSNumber, width: CGFloat, completionHandler: @escaping (_ success: Bool, _ image: UIImage, _ errorString: String?) -> Void) {
+            let url = NSURL(string: API.Constants.BASE_URL + String(describing: width) + API.Constants.IMAGE_URL + String(describing: id))
             let request = NSMutableURLRequest(url: url! as URL)
             let image = UIImage()
             let task = session.dataTask(with: request as URLRequest) { data, response, error in

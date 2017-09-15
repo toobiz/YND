@@ -30,7 +30,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         authorLabel.text = imageSets[currentIndex].author
         let id = imageSets[currentIndex].id
         
-        API.sharedInstance().downloadImage(id: id!, width: imageView.bounds.width, height: imageView.bounds.height - 64) { (success, image, error) in
+        API.sharedInstance().downloadImage(id: id!, width: view.frame.size.width) { (success, image, error) in
             
             if success == true {
                 

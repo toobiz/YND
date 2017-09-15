@@ -69,7 +69,6 @@
                                 <subviews>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="kCK-en-DYL">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
-                                        <color key="backgroundColor" red="0.91189628840000003" green="0.93335783480000001" blue="0.94539457559999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -97,6 +96,8 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="authorLabel" destination="FQy-fa-IvN" id="yiJ-0B-381"/>
                         <outlet property="imageView" destination="kCK-en-DYL" id="B1H-fy-XCv"/>

@@ -324,54 +324,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/DetailViewController.swift"
-            timestampString = "527123288.693425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ynd.DetailViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "ynd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mike/Programmer/YND/ynd/ynd/DetailViewController.swift"
-                  timestampString = "527121341.944334"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "1084">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ynd.DetailViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "ynd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mike/Programmer/YND/ynd/ynd/DetailViewController.swift"
-                  timestampString = "527121341.9468"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "58">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ynd/DetailViewController.swift"
             timestampString = "527121321.663098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

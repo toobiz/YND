@@ -20,9 +20,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS5-mm-bUp">
-                        <rect key="frame" x="107" y="22" width="260" height="21"/>
+                        <rect key="frame" x="121" y="22" width="246" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="260" id="fSA-5O-0ab"/>
                             <constraint firstAttribute="height" constant="21" id="mbv-MT-fSM"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
@@ -41,6 +40,7 @@
                     <constraint firstItem="yS5-mm-bUp" firstAttribute="centerY" secondItem="Ex1-q1-6da" secondAttribute="centerY" id="6ZK-D5-hdb"/>
                     <constraint firstItem="g3p-Dr-o4P" firstAttribute="leading" secondItem="Ex1-q1-6da" secondAttribute="leading" constant="19" id="91q-ej-NDh"/>
                     <constraint firstItem="g3p-Dr-o4P" firstAttribute="centerY" secondItem="Ex1-q1-6da" secondAttribute="centerY" id="cSX-QB-2lS"/>
+                    <constraint firstItem="yS5-mm-bUp" firstAttribute="leading" secondItem="g3p-Dr-o4P" secondAttribute="trailing" constant="37" id="uIT-Cd-n0n"/>
                     <constraint firstItem="yS5-mm-bUp" firstAttribute="trailing" secondItem="Ex1-q1-6da" secondAttribute="trailingMargin" id="zfx-cX-9rI"/>
                 </constraints>
             </tableViewCellContentView>

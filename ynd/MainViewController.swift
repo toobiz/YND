@@ -56,7 +56,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            print("Image retrieved from cache")
         } else {
             cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
-            API.sharedInstance().downloadImage(id: imageSet.id!, width: 300, height: 300, completionHandler: { (success, image, error) in
+            API.sharedInstance().downloadImage(id: imageSet.id!, width: 300, completionHandler: { (success, image, error) in
                 if success == true {
 //                    if let cellToUpdate = tableView.cellForRow(at: indexPath) as? ListCell {
 //                        quiz.image = resizedImage
@@ -91,7 +91,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let pageView = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
         pageView.imageSets = imageSets
         pageView.currentIndex = indexPath.row
-        pageView.getViewControllerAtIndex(index: indexPath.row)
         
         navigationController?.pushViewController(pageView, animated: true)
     }
