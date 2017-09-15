@@ -49,18 +49,4 @@ class ImageSet: NSManagedObject {
             }
         }
     }
-//    var thumbnail: UIImage? {
-//        
-//        get {
-//            let fileName = String(describing: id) + "thumbnail"
-//            return ImageCache.Caches.imageCache.imageWithIdentifier(fileName)
-//        }
-//        
-//        set {
-//            if id != nil {
-//                let fileName = String(describing: id) + "thumbnail"
-//                ImageCache.Caches.imageCache.storeImage(newValue, withIdentifier: fileName)
-//            }
-//        }
-//    }
 }

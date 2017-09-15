@@ -44,21 +44,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         imageSets.sort(by: {Int($0.id!) < Int($1.id!) })
         
         API.sharedInstance().downloadListOfImages { (success, imageSets, error) in
-//            if success == true {
-                self.imageSets = imageSets
-                self.imageSets.sort(by: {Int($0.id!) < Int($1.id!) })
-
-                DispatchQueue.main.async() {
-                    self.tableView.reloadData()
-                    if error != nil {
-                        self.showAlert(message: error!)
-                    }
+            self.imageSets = imageSets
+            self.imageSets.sort(by: {Int($0.id!) < Int($1.id!) })
+            
+            DispatchQueue.main.async() {
+                self.tableView.reloadData()
+                if error != nil {
+                    self.showAlert(message: error!)
                 }
-
-//            } else {
-//                self.showAlert(message: error!)
-//            }
-
+            }
         }
     }
     
@@ -78,7 +72,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if imageSets.count > 0 {
             cell?.listName.text = imageSet.author
-
         }
         
         if imageSet.id == nil {
@@ -91,14 +84,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
             API.sharedInstance().downloadImage(id: imageSet.id!, width: 300, completionHandler: { (success, image, error) in
                 if success == true {
-//                    if let cellToUpdate = tableView.cellForRow(at: indexPath) as? ListCell {
                         imageSet.image = image
                         DispatchQueue.main.async(execute: {
-//                            cell?.listImage.image = nil
                             cell?.listImage.image = image
                             cell?.setNeedsLayout()
                         });
-//                    }
                 } else {
                     DispatchQueue.main.async(execute: {
                         cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
@@ -116,10 +106,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let imageSet = imageSets[indexPath.row]
-//        let detailView = storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailViewController
-//        detailView.id = imageSet.id!
-//        detailView.author = imageSet.author
         
         let pageView = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
         pageView.imageSets = imageSets
@@ -140,7 +126,4 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true){}
     }
-    
-
-
 }

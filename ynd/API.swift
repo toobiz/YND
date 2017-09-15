@@ -53,8 +53,6 @@ class API: NSObject {
         self.imageSets = self.fetchAll()
         
         if Reachability.isConnectedToNetwork() == true {
-//            print("Internet Connection Available!")
-
         
         let urlString = API.Constants.LIST_URL
         let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
@@ -94,7 +92,7 @@ class API: NSObject {
                 }
                 
                 if ids.contains(idToAdd) {
-//                    print("Already in Core Data")
+                    
                 } else {
                     print("Adding to Core Data")
                     
@@ -120,7 +118,6 @@ class API: NSObject {
                 }
                 
             }
-
             CoreDataStackManager.sharedInstance().saveContext()
             completionHandler(true, self.imageSets, nil)
             
@@ -128,7 +125,6 @@ class API: NSObject {
         task.resume()
             
         } else {
-//            print("Internet Connection not Available!")
             completionHandler(false, imageSets, "Internet Connection not Available!")
         }
     }
@@ -140,30 +136,22 @@ class API: NSObject {
         let request = NSMutableURLRequest(url: url! as URL)
         
         if Reachability.isConnectedToNetwork() == true {
-//            print("Internet Connection Available!")
             
             let task = session.dataTask(with: request as URLRequest) { data, response, error in
                 
                 if response != nil {
                     if let image = UIImage(data: data!) {
-//                        print(url)
                         completionHandler(true, image, nil)
                     } else {
                         completionHandler(false, image, nil)
                     }
-                    //                    print(image)
                 }
                 if let error = error {
                     completionHandler(false, image, error.localizedDescription)
-                    //                } else if data != nil {
-                    //                    let image = UIImage(data: data!)
-                    //                    completionHandler(true, image!, nil)
                 }
-                
             }
             task.resume()
         } else {
-//            print("Internet Connection not Available!")
             completionHandler(false, image, "Internet Connection not Available!")
         }
     }

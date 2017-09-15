@@ -19,13 +19,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         dataSource = self
         
         setViewControllers([getViewControllerAtIndex(index: currentIndex)] as [UIViewController], direction: .forward, animated: true, completion: nil)
-        
-        print(currentIndex)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
     }
     
     // MARK: - PageView Data Source
@@ -39,7 +32,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
         index -= 1
         currentIndex -= 1
-//        print(currentIndex)
         return getViewControllerAtIndex(index: index)
     }
 
@@ -53,7 +45,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
         index += 1
         currentIndex += 1
-//        print(currentIndex)
         if (index == imageSets.count) {
             return nil;
         }
@@ -63,9 +54,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     func getViewControllerAtIndex(index: NSInteger) -> DetailViewController {
         
         let detailView = self.storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailViewController
-//        detailView.id = imageSets[currentIndex].id!
-//        print("Next id:" + "\(imageSets[currentIndex].id!)")
-//        detailView.author = imageSets[currentIndex].author
         detailView.imageSets = imageSets
         detailView.currentIndex = index
         return detailView
