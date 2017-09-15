@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/API.swift"
-            timestampString = "526997085.256787"
+            timestampString = "527150386.23866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "downloadListOfImages(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/API.swift"
-            timestampString = "526997085.256787"
+            timestampString = "527150386.23866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "downloadListOfImages(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/API.swift"
-            timestampString = "526997085.256787"
+            timestampString = "527150386.23866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "downloadListOfImages(completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/API.swift"
-            timestampString = "526997085.256787"
+            timestampString = "527150386.23866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "downloadListOfImages(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,44 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/API.swift"
-            timestampString = "526998033.445673"
+            timestampString = "527151056.527661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "downloadImage(id:width:height:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ynd/API.swift"
-            timestampString = "526997825.121366"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "downloadImage(id:width:height:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ynd/API.swift"
-            timestampString = "526998033.445673"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "downloadImage(id:width:height:completionHandler:)"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "downloadImage(id:width:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -164,59 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/MainViewController.swift"
-            timestampString = "526997070.766274"
+            timestampString = "527150668.996884"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ynd.MainViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "ynd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mike/Programmer/YND/ynd/ynd/MainViewController.swift"
-                  timestampString = "526997686.097874"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "162">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ynd.MainViewController.(viewDidLoad () -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "ynd"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mike/Programmer/YND/ynd/ynd/MainViewController.swift"
-                  timestampString = "526997686.100506"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ynd/MainViewController.swift"
-            timestampString = "527028798.356244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -308,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ynd/DetailViewController.swift"
-            timestampString = "527123288.693425"
+            timestampString = "527151056.527661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -424,6 +344,22 @@
             startingLineNumber = "71"
             endingLineNumber = "71"
             landmarkName = "getViewControllerAtIndex(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ynd/MainViewController.swift"
+            timestampString = "527150713.017312"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

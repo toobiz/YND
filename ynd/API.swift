@@ -30,16 +30,24 @@ class API: NSObject {
 
     func downloadListOfImages(completionHandler: @escaping (_ success: Bool, _ imageSets: [ImageSet], _ errorString: String?) -> Void) {
         
+        var imageSets = [ImageSet]()
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet Connection Available!")
+
+        
         let urlString = API.Constants.LIST_URL
         let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             guard (error == nil) else {
                 print("Connection Error")
+                completionHandler(false, imageSets, "Connection Error")
                 return
             }
             guard let data = data else {
                 print("No data was returned by the request!")
+                completionHandler(false, imageSets, "No data was returned by the request!")
                 return
             }
             let parsedResponse = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
@@ -56,7 +64,6 @@ class API: NSObject {
 //                ids.append(quiz.id)
 //            }
             
-            var imageSets = [ImageSet]()
             var authors = [String]()
             
             for item in items {
@@ -100,34 +107,46 @@ class API: NSObject {
             
         }
         task.resume()
-
+            
+        } else {
+            print("Internet Connection not Available!")
+            completionHandler(false, imageSets, "Internet Connection not Available!")
+        }
     }
     
     func downloadImage(id: NSNumber, width: CGFloat, completionHandler: @escaping (_ success: Bool, _ image: UIImage, _ errorString: String?) -> Void) {
-            let url = NSURL(string: API.Constants.BASE_URL + String(describing: width) + API.Constants.IMAGE_URL + String(describing: id))
-            let request = NSMutableURLRequest(url: url! as URL)
-            let image = UIImage()
+        
+        let image = UIImage()
+        let url = NSURL(string: API.Constants.BASE_URL + String(describing: width) + API.Constants.IMAGE_URL + String(describing: id))
+        let request = NSMutableURLRequest(url: url! as URL)
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet Connection Available!")
+            
             let task = session.dataTask(with: request as URLRequest) { data, response, error in
                 
                 if response != nil {
-                        if let image = UIImage(data: data!) {
-                            print(url)
-                            completionHandler(true, image, nil)
-                        } else {
-                            completionHandler(false, image, nil)
+                    if let image = UIImage(data: data!) {
+                        print(url)
+                        completionHandler(true, image, nil)
+                    } else {
+                        completionHandler(false, image, nil)
                     }
-//                    print(image)
+                    //                    print(image)
                 }
                 if let error = error {
                     completionHandler(false, image, error.localizedDescription)
-//                } else if data != nil {
-//                    let image = UIImage(data: data!)
-//                    completionHandler(true, image!, nil)
+                    //                } else if data != nil {
+                    //                    let image = UIImage(data: data!)
+                    //                    completionHandler(true, image!, nil)
                 }
                 
             }
             task.resume()
-            
+        } else {
+            print("Internet Connection not Available!")
+            completionHandler(false, image, "Internet Connection not Available!")
+        }
     }
     
 }

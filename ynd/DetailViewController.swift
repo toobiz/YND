@@ -32,12 +32,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         API.sharedInstance().downloadImage(id: id!, width: view.frame.size.width) { (success, image, error) in
             
-            if success == true {
-                
+//            if success == true {
+            
                 DispatchQueue.main.async(execute: {
                     self.imageView.image = image
                 });
+            if error != nil {
+                self.showAlert(message: error!)
             }
+//            }
         }
         
     }
@@ -52,4 +55,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
 
+    // MARK: - Helpers
+    
+    func showAlert(message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true){}
+    }
 }

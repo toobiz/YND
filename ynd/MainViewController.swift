@@ -22,10 +22,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         
         API.sharedInstance().downloadListOfImages { (success, imageSets, error) in
-            self.imageSets = imageSets
-            DispatchQueue.main.async() {
-                self.tableView.reloadData()
+//            if success == true {
+                self.imageSets = imageSets
+                DispatchQueue.main.async() {
+                    self.tableView.reloadData()
+                }
+            if error != nil {
+                self.showAlert(message: error!)
             }
+//            } else {
+//                self.showAlert(message: error!)
+//            }
+
         }
     }
     
@@ -98,5 +106,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+    
+    // MARK: - Helpers
+    
+    func showAlert(message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true){}
+    }
+    
+
 
 }
