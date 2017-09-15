@@ -26,10 +26,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self.imageSets = imageSets
                 DispatchQueue.main.async() {
                     self.tableView.reloadData()
+                    if error != nil {
+                        self.showAlert(message: error!)
+                    }
                 }
-            if error != nil {
-                self.showAlert(message: error!)
-            }
+
 //            } else {
 //                self.showAlert(message: error!)
 //            }

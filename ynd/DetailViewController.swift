@@ -36,10 +36,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             
                 DispatchQueue.main.async(execute: {
                     self.imageView.image = image
+                    if error != nil {
+                        self.showAlert(message: error!)
+                    }
                 });
-            if error != nil {
-                self.showAlert(message: error!)
-            }
+
 //            }
         }
         
