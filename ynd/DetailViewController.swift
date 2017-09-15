@@ -30,20 +30,27 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         authorLabel.text = imageSets[currentIndex].author
         let id = imageSets[currentIndex].id
         
-        API.sharedInstance().downloadImage(id: id!, width: view.frame.size.width) { (success, image, error) in
-            
-//            if success == true {
-            
+        if id == nil {
+            imageView?.image = nil
+            print("Image not available")
+        } else if imageSets[currentIndex].image != nil {
+            imageView.image = imageSets[currentIndex].image!
+            print("Image retrieved from cache")
+        } else {
+            API.sharedInstance().downloadImage(id: id!, width: view.frame.size.width) { (success, image, error) in
+                
+                //            if success == true {
+                self.imageSets[self.currentIndex].image = image
                 DispatchQueue.main.async(execute: {
                     self.imageView.image = image
                     if error != nil {
                         self.showAlert(message: error!)
                     }
                 });
-
-//            }
+                
+                //            }
+            }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

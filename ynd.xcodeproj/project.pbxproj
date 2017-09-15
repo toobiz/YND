@@ -22,6 +22,7 @@
 		27EEBD2F1F6BA92E00B5C12A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD2E1F6BA92E00B5C12A /* Reachability.swift */; };
 		27EEBD311F6BB7C600B5C12A /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD301F6BB7C600B5C12A /* CoreDataStackManager.swift */; };
 		27EEBD341F6BB9D600B5C12A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD321F6BB9D600B5C12A /* DataModel.xcdatamodeld */; };
+		27EEBD361F6BCE0B00B5C12A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEBD351F6BCE0B00B5C12A /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		27EEBD2E1F6BA92E00B5C12A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		27EEBD301F6BB7C600B5C12A /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		27EEBD331F6BB9D600B5C12A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		27EEBD351F6BCE0B00B5C12A /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				27EEBD011F683E9600B5C12A /* API.swift */,
 				27EEBD031F68414200B5C12A /* Constants.swift */,
 				27EEBD2E1F6BA92E00B5C12A /* Reachability.swift */,
+				27EEBD351F6BCE0B00B5C12A /* ImageCache.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				27EEBCFD1F674FB500B5C12A /* ListCell.swift in Sources */,
 				27EEBD311F6BB7C600B5C12A /* CoreDataStackManager.swift in Sources */,
 				27EEBCEC1F6741F400B5C12A /* MainViewController.swift in Sources */,
+				27EEBD361F6BCE0B00B5C12A /* ImageCache.swift in Sources */,
 				27EEBD021F683E9600B5C12A /* API.swift in Sources */,
 				27EEBD2F1F6BA92E00B5C12A /* Reachability.swift in Sources */,
 				27EEBCEA1F6741F400B5C12A /* AppDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc (ImageSet)
 class ImageSet: NSManagedObject {
@@ -31,6 +32,34 @@ class ImageSet: NSManagedObject {
         
         if let _id = dictionary["id"] {
             self.id = _id as? NSNumber
+        }
+    }
+    
+    var image: UIImage? {
+        
+        get {
+            let fileName = author
+            return ImageCache.Caches.imageCache.imageWithIdentifier(fileName)
+        }
+        
+        set {
+            let fileName = author
+            ImageCache.Caches.imageCache.storeImage(newValue, withIdentifier: fileName!)
+        }
+    }
+    
+    var thumbnail: UIImage? {
+        
+        get {
+            let fileName = String(describing: id)
+            return ImageCache.Caches.imageCache.imageWithIdentifier(fileName)
+        }
+        
+        set {
+            if id != nil {
+                let fileName = String(describing: id)
+                ImageCache.Caches.imageCache.storeImage(newValue, withIdentifier: fileName)
+            }
         }
     }
 }

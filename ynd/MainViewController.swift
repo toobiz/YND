@@ -84,15 +84,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if imageSet.id == nil {
             cell?.listImage.image = nil
             print("Image not available")
-//        } else if quiz.image != nil {
-//            cell?.quizPhoto.image = quiz.image!
-//            print("Image retrieved from cache")
+        } else if imageSet.image != nil {
+            cell?.listImage.image = imageSet.thumbnail!
+            print("Image retrieved from cache")
         } else {
             cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
             API.sharedInstance().downloadImage(id: imageSet.id!, width: 300, completionHandler: { (success, image, error) in
                 if success == true {
 //                    if let cellToUpdate = tableView.cellForRow(at: indexPath) as? ListCell {
-//                        quiz.image = resizedImage
+                        imageSet.thumbnail = image
                         DispatchQueue.main.async(execute: {
 //                            cell?.listImage.image = nil
                             cell?.listImage.image = image
@@ -100,10 +100,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         });
 //                    }
                 } else {
-//                    DispatchQueue.main.async(execute: {
+                    DispatchQueue.main.async(execute: {
                         cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
-//                    });
-                    
+                    });
+                
                 }
             })
         }
