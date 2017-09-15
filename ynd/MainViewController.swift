@@ -7,11 +7,30 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var imageSets = [ImageSet]()
+    
+    // MARK: - Core Data
+    
+    lazy var sharedContext: NSManagedObjectContext =  {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }()
+    
+    func fetchAll() -> [ImageSet] {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageSet")
+        
+        do {
+            return try sharedContext.fetch(fetchRequest) as! [ImageSet]
+        } catch  let error as NSError {
+            print("Error in fetchAll(): \(error)")
+            return [ImageSet]()
+        }
+    }
     
     // MARK: - View lifecycle
     
@@ -21,9 +40,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
+        imageSets = fetchAll()
+        imageSets.sort(by: {Int($0.id!) < Int($1.id!) })
+        
         API.sharedInstance().downloadListOfImages { (success, imageSets, error) in
 //            if success == true {
                 self.imageSets = imageSets
+                self.imageSets.sort(by: {Int($0.id!) < Int($1.id!) })
+
                 DispatchQueue.main.async() {
                     self.tableView.reloadData()
                     if error != nil {
@@ -92,7 +116,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let imageSet = imageSets[indexPath.row]
+//        let imageSet = imageSets[indexPath.row]
 //        let detailView = storyboard?.instantiateViewController(withIdentifier: "Details") as! DetailViewController
 //        detailView.id = imageSet.id!
 //        detailView.author = imageSet.author

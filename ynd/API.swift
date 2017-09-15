@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class API: NSObject {
     
     var session: URLSession
+    var imageSets = [ImageSet]()
     
     override init() {
         session = URLSession.shared
@@ -26,11 +28,29 @@ class API: NSObject {
         return Singleton.sharedInstance
     }
     
+    // MARK: - Core Data
+    
+    lazy var sharedContext: NSManagedObjectContext =  {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }()
+    
+    func fetchAll() -> [ImageSet] {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageSet")
+        
+        do {
+            return try sharedContext.fetch(fetchRequest) as! [ImageSet]
+        } catch  let error as NSError {
+            print("Error in fetchAll(): \(error)")
+            return [ImageSet]()
+        }
+    }
+    
     // MARK: - Unsplash API
 
     func downloadListOfImages(completionHandler: @escaping (_ success: Bool, _ imageSets: [ImageSet], _ errorString: String?) -> Void) {
         
-        var imageSets = [ImageSet]()
+        self.imageSets = self.fetchAll()
         
         if Reachability.isConnectedToNetwork() == true {
             print("Internet Connection Available!")
@@ -42,12 +62,12 @@ class API: NSObject {
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             guard (error == nil) else {
                 print("Connection Error")
-                completionHandler(false, imageSets, "Connection Error")
+                completionHandler(false, self.imageSets, "Connection Error")
                 return
             }
             guard let data = data else {
                 print("No data was returned by the request!")
-                completionHandler(false, imageSets, "No data was returned by the request!")
+                completionHandler(false, self.imageSets, "No data was returned by the request!")
                 return
             }
             let parsedResponse = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
@@ -57,59 +77,58 @@ class API: NSObject {
                 return
             }
             
-//            self.quizzes = self.fetchAllQuizzes()
-//            var ids = [NSNumber]()
-//
-//            for quiz in self.quizzes {
-//                ids.append(quiz.id)
-//            }
+            var ids = [NSNumber]()
+
+            for imageSet in self.imageSets {
+                ids.append(imageSet.id!)
+            }
             
             var authors = [String]()
             
             for item in items {
                 
-//                print(item)
-                
-                var authorToAdd = String()
                 var idToAdd = NSNumber()
-                var filteredAuthors = [String]()
-
-                if let author = item["author"] as? String {
-                    if authors.contains(author) {
-                        filteredAuthors = authors.filter({ $0 == author })
-                    }
-                    authors.append(author)
-                    authorToAdd = author + " \(filteredAuthors.count + 1)"
-                }
                 
                 if let id = item["id"] {
                     idToAdd = id as! NSNumber
                 }
                 
-                let imageDict: [String: AnyObject] = [
-                    "author" : authorToAdd as AnyObject,
-                    "id" : idToAdd as AnyObject
-                ]
-                
-                let imageSetToAdd = ImageSet(dictionary: imageDict)
-//                print(imageSetToAdd.author)
-//                print(imageSetToAdd.id)
-                imageSets.append(imageSetToAdd)
-
-//                    let quizToAdd = Quiz(dictionary: quizDict, context: self.sharedContext)
-//                    CoreDataStackManager.sharedInstance().saveContext()
-//                    self.quizzes.append(quizToAdd)
+                if ids.contains(idToAdd) {
+                    print("Already in Core Data")
+                } else {
+//                    print("Adding to Core Data")
+                    
+                    var authorToAdd = String()
+                    var filteredAuthors = [String]()
+                    
+                    if let author = item["author"] as? String {
+                        if authors.contains(author) {
+                            filteredAuthors = authors.filter({ $0 == author })
+                        }
+                        authors.append(author)
+                        authorToAdd = author + " \(filteredAuthors.count + 1)"
+                    }
+                    
+                    let imageDict: [String: AnyObject] = [
+                        "author" : authorToAdd as AnyObject,
+                        "id" : idToAdd as AnyObject
+                    ]
+                    
+                    let imageSetToAdd = ImageSet(dictionary: imageDict, context: self.sharedContext)
+                    CoreDataStackManager.sharedInstance().saveContext()
+                    self.imageSets.append(imageSetToAdd)
                 }
-//
-//            }
-//            CoreDataStackManager.sharedInstance().saveContext()
-            completionHandler(true, imageSets, nil)
+                
+            }
+
+            CoreDataStackManager.sharedInstance().saveContext()
+            completionHandler(true, self.imageSets, nil)
             
         }
         task.resume()
             
         } else {
-            print("Internet Connection not Available!")
+//            print("Internet Connection not Available!")
             completionHandler(false, imageSets, "Internet Connection not Available!")
         }
     }
@@ -127,7 +146,7 @@ class API: NSObject {
                 
                 if response != nil {
                     if let image = UIImage(data: data!) {
-                        print(url)
+//                        print(url)
                         completionHandler(true, image, nil)
                     } else {
                         completionHandler(false, image, nil)
@@ -144,7 +163,7 @@ class API: NSObject {
             }
             task.resume()
         } else {
-            print("Internet Connection not Available!")
+//            print("Internet Connection not Available!")
             completionHandler(false, image, "Internet Connection not Available!")
         }
     }

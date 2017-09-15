@@ -7,29 +7,30 @@
 //
 
 import Foundation
+import CoreData
 
-class ImageSet {
+@objc (ImageSet)
+class ImageSet: NSManagedObject {
     
-    var _author: String!
-    var _id: NSNumber?
+    @NSManaged var author: String!
+    @NSManaged var id: NSNumber?
     
-    var author: String {
-        return _author
-    }
-    
-    var id: NSNumber? {
-        return _id!
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
     }
     
     // Initialize new ImageSet
     
-    init(dictionary: [String: AnyObject]) {
-        if let author = dictionary["author"] {
-            self._author = author as! String
+    init(dictionary: [String: AnyObject], context: NSManagedObjectContext) {
+        let entity =  NSEntityDescription.entity(forEntityName: "ImageSet", in: context)!
+        super.init(entity: entity, insertInto: context)
+
+        if let _author = dictionary["author"] {
+            self.author = _author as! String
         }
         
-        if let id = dictionary["id"] {
-            self._id = id as? NSNumber
+        if let _id = dictionary["id"] {
+            self.id = _id as? NSNumber
         }
     }
 }
