@@ -38,19 +38,6 @@ class ImageSet: NSManagedObject {
     var image: UIImage? {
         
         get {
-            let fileName = author
-            return ImageCache.Caches.imageCache.imageWithIdentifier(fileName)
-        }
-        
-        set {
-            let fileName = author
-            ImageCache.Caches.imageCache.storeImage(newValue, withIdentifier: fileName!)
-        }
-    }
-    
-    var thumbnail: UIImage? {
-        
-        get {
             let fileName = String(describing: id)
             return ImageCache.Caches.imageCache.imageWithIdentifier(fileName)
         }
@@ -62,4 +49,18 @@ class ImageSet: NSManagedObject {
             }
         }
     }
+//    var thumbnail: UIImage? {
+//        
+//        get {
+//            let fileName = String(describing: id) + "thumbnail"
+//            return ImageCache.Caches.imageCache.imageWithIdentifier(fileName)
+//        }
+//        
+//        set {
+//            if id != nil {
+//                let fileName = String(describing: id) + "thumbnail"
+//                ImageCache.Caches.imageCache.storeImage(newValue, withIdentifier: fileName)
+//            }
+//        }
+//    }
 }

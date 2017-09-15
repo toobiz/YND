@@ -31,7 +31,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let id = imageSets[currentIndex].id
         
         if id == nil {
-            imageView?.image = nil
+            imageView?.image = #imageLiteral(resourceName: "placeholder")
             print("Image not available")
         } else if imageSets[currentIndex].image != nil {
             imageView.image = imageSets[currentIndex].image!
@@ -40,7 +40,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             API.sharedInstance().downloadImage(id: id!, width: view.frame.size.width) { (success, image, error) in
                 
                 //            if success == true {
-                self.imageSets[self.currentIndex].image = image
+//                self.imageSets[self.currentIndex].image = image
                 DispatchQueue.main.async(execute: {
                     self.imageView.image = image
                     if error != nil {
@@ -53,12 +53,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-
-    }
-
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }

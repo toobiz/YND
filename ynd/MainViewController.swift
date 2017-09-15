@@ -85,14 +85,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell?.listImage.image = nil
             print("Image not available")
         } else if imageSet.image != nil {
-            cell?.listImage.image = imageSet.thumbnail!
+            cell?.listImage.image = imageSet.image!
             print("Image retrieved from cache")
         } else {
             cell?.listImage.image = #imageLiteral(resourceName: "placeholder")
             API.sharedInstance().downloadImage(id: imageSet.id!, width: 300, completionHandler: { (success, image, error) in
                 if success == true {
 //                    if let cellToUpdate = tableView.cellForRow(at: indexPath) as? ListCell {
-                        imageSet.thumbnail = image
+                        imageSet.image = image
                         DispatchQueue.main.async(execute: {
 //                            cell?.listImage.image = nil
                             cell?.listImage.image = image
