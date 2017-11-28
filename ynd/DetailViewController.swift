@@ -13,7 +13,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var currentIndex = Int()
     var imageSets = [ImageSet]()
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImagiView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
